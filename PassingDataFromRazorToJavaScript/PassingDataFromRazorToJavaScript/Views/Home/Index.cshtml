@@ -1,0 +1,23 @@
+﻿@model IEnumerable<PassingDataFromRazorToJavaScript.Models.Person>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<table id="personContainer" class="table table-striped table-bordered table-hover" style="margin-top: 100px;">
+
+</table>
+
+
+@section scripts{
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/app.js"></script>
+    <script>
+        var model = '@Html.Raw(Json.Encode(Model))';
+        APP.init(model);
+    </script>
+}
+
+
+
